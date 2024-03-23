@@ -30,11 +30,11 @@ const Edit = ({e,infoTable,setInfoTable,setTableTest,tableTest}) => {
 
   return (
                       <tr>
-                        <td className='tbody-td'>{e.id}</td>
-                        <td className='tbody-td'><input onChange={(e)=>setClassNameValue(e.target.value)} placeholder={e.className} className='edit-inp' type="text" id="" /></td>
-                        <td className='tbody-td'><input onChange={(e)=>setTypeValue(e.target.value)} placeholder={e.type}  className='edit-inp' type="text" id="" /></td>
-                        <td className='tbody-td'><input onChange={(e)=>setHoursValue(e.target.value)} placeholder={e.hours}  className='edit-inp' type="text" id="" /></td>
-                        <td className='tbody-td'>
+                        <td className={e.id%2?'tbody-td':"tbody-td-bg"}>{e.id}</td>
+                        <td className={e.id%2?'tbody-td':"tbody-td-bg"}><input onChange={(e)=>setClassNameValue(e.target.value)} placeholder={e.className} className='edit-inp' type="text" id="" /></td>
+                        <td className={e.id%2?'tbody-td':"tbody-td-bg"}><input onChange={(e)=>setTypeValue(e.target.value)} placeholder={e.type}  className='edit-inp' type="text" id="" /></td>
+                        <td className={e.id%2?'tbody-td':"tbody-td-bg"}><input onChange={(e)=>setHoursValue(e.target.value)} placeholder={e.hours}  className='edit-inp' type="text" id="" /></td>
+                        <td className={e.id%2?'tbody-td':"tbody-td-bg"}>
                             <HiMiniXMark  onClick={()=>deleteFunc(e)} className='tbody-trash-icons'/>
                             <MdOutlineDone onClick={()=>editFunc(e)} className='edit-done-icons' />
                         </td>

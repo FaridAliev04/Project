@@ -28,9 +28,9 @@ input{
   padding: 10px 32px;
   border-radius: 32px;
   border: 0.1px solid white;
-  min-height: 40px;
+  /* min-height: 40px; */
   font-size: 18px;
- 
+ height: 60px;
 }
 .add-icons{
   background-color: white;
@@ -39,7 +39,7 @@ input{
   font-size: 1.5rem;
   position: absolute;
   right: 55px;
-  top: 12px;
+  top: 15px;
 }
 .menu-icons{
   font-size: 2.5rem;
@@ -69,6 +69,7 @@ transition: 1s;
   height: 14rem;
   left: 0;
   transition: 1s;
+  z-index: 99999;
 
 }
 .menu-nav-link{
@@ -119,7 +120,7 @@ cursor: pointer;
   background-color: white;
 }
 
-.tbody-trash-icons{
+/* .tbody-trash-icons{
   color: red;
   font-size: 1.5rem;
   cursor: pointer;
@@ -159,7 +160,7 @@ thead {
 }
 .edit-td{
   display: flex;
-
+  width: 10rem;
 }
 .tbody-edit-icons{
   color: orange;
@@ -173,7 +174,58 @@ thead {
 }
 .tbody-td{  
 background-color: rgb(180, 176, 176) !important;
+width: 45rem;
 }
 .tbody-td-bg{
   background-color: white !important;
+  width: 45rem;
 }
+.thead-th{
+  cursor: pointer;
+}
+.thead-th-none-div{
+  position: absolute;
+  bottom: -1rem;
+  z-index: 9999;
+  display: none;
+}
+.thead-th-header{
+  font-size: 1.5rem;
+}
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell{
+  overflow: inherit; 
+  white-space: normal !important;
+}
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-cellContent{
+  height: 3rem !important;
+  overflow-y: auto !important;
+}
+.GridToolbarContainer{
+  display: flex;
+  justify-content: space-between;
+} */
+
+
+/* Table css */
+
+.table-header{
+  color: white;
+}
+.table-icons{
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+}
+.table-actions-icons{
+  display: flex;
+  gap: 1rem;
+  
+}
+.MDBCardHeader{
+background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+}
+
+
+    .card-body{
+      overflow: auto !important;
+    }

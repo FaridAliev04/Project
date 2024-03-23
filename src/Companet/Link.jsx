@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoTrashOutline } from "react-icons/io5";
+import { HiOutlineXMark } from "react-icons/hi2";
 
 const Link = ({info,setInfo}) => {
 
@@ -12,7 +13,8 @@ const Link = ({info,setInfo}) => {
         {info.map((e)=>{
                   return <div key={e.id} className="link-map-div">
                       <a target='_blank' className='link-map-value' href={e.link}>{e.link}</a>
-                      <IoTrashOutline onClick={()=>deleteFunc(e)}  className='trash-icons'/>
+                      <HiOutlineXMark onClick={()=>deleteFunc(e)}  className='trash-icons'/>
+                      
                   </div>
                 })}
     </div>
