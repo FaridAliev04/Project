@@ -2,7 +2,7 @@ export  const initialRows = [
     {
       id: 25,
       brandName: "ZARA",
-      articleId: "test_98327c19d446",
+      articleId: "b",
       productMergeId: "test_edf3de27c56a",
       productTitle: "test_29e4fcc9a398",
       sourcePrice: "test_1abf42062e0f",
@@ -29,7 +29,7 @@ export  const initialRows = [
     {
       id: 26,
       brandName: "ZARA",
-      articleId: "test_98327c19d446",
+      articleId: "a",
       productMergeId: "test_edf3de27c56a",
       productTitle: "test_29e4fcc9a398",
       sourcePrice: "test_1abf42062e0f",
