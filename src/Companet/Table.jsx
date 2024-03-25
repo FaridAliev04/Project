@@ -14,6 +14,9 @@ import { MdDeleteOutline } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { initialRows } from "../fakeData/initialRows";
 import RowsEdit from "./RowsEdit";
+import { MdDone } from "react-icons/md";
+import Date from "./Date";
+
 
 const Table = (props) => {
   const [rowsData, setRowsData] = useState(initialRows);
@@ -22,6 +25,10 @@ const Table = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [date, setDate] = useState();
   const [searchColumns,setSearchColumns]=useState(null)
+
+  const[dataSort,setDataSort]=useState(null)
+  const [searchQuery, setSearchQuery] = useState("");
+
   // const [id, setId] = useState([]);
 
   const handleCheckBoxFunc = (e) => {
@@ -71,9 +78,11 @@ const Table = (props) => {
     console.log(rowsData);
   }, []);
 
-  return (
+  return (<div>
+    <Date rowsData={rowsData} setRowsData={setRowsData}/>
     <MDBCard narrow>
-        <RowsEdit setSearchColumns={setSearchColumns} searchColumns={searchColumns} rowsData={rowsData} setRowsData={setRowsData}/>
+              <div onClick={()=>(setDataSort(null),setSearchColumns(null),setSearchQuery(""))} className={searchColumns?"blackBg":"blackBg-none"}></div>
+        <RowsEdit dataSort={dataSort} setDataSort={setDataSort} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setSearchColumns={setSearchColumns} searchColumns={searchColumns} rowsData={rowsData} setRowsData={setRowsData}/>
       <MDBCardHeader className="MDBCardHeader view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
         <div></div>
         <div className="table-name">
@@ -85,12 +94,14 @@ const Table = (props) => {
             onClick={() => handleDeleteChecked()}
             className="table-icons"
           />
-          <FaRegEyeSlash onClick={handleEditDataFunc} className="table-icons" />
+          <MdDone  onClick={handleEditDataFunc} className={isEditing===false?"table-icons":"done-table-icons"} />
         </div>
       </MDBCardHeader>
       <MDBCardBody cascade>
-        <MDBTable className="MDBCard" btn fixed>
-          <MDBTableHead>
+        <MDBTable 
+        width={10}
+   btn fixed>
+          <MDBTableHead  >
             <tr>
               <th>
                 <input
@@ -101,26 +112,26 @@ const Table = (props) => {
                 />
               </th>
               <th onClick={()=>setSearchColumns("createDate")}>Create Date</th>
-              <th onClick={()=>setSearchColumns("articleId")}>Article ID</th>
-              <th>Product Merge Id</th>
-              <th>Brand Name</th>
-              <th>productTitle</th>
-              <th> sourcePrice</th>
-              <th>finalPrice</th>
-              <th> color</th>
-              <th> description</th>
-              <th> beforeDiscountPrice</th>
-              <th> productSize</th>
-              <th> mainPhotoLink</th>
-              <th> additionalPhotoLinks</th>
-              <th> colorFromList</th>
-              <th> originCountry</th>
-              <th> materialName</th>
-              <th> materialOuterShell</th>
-              <th> materialLinerShell</th>
-              <th> careGuide</th>
-              <th> inStock</th>
-              <th> productLink</th>
+              <th style={{width:10}} className="table-th" onClick={()=>setSearchColumns("articleId")}>Article ID</th>
+              <th className="table-th">Product Merge Id</th>
+              <th className="table-th">Brand Name</th>
+              <th className="table-th">productTitle</th>
+              <th className="table-th"> sourcePrice</th>
+              <th className="table-th">finalPrice</th>
+              <th className="table-th"> color</th>
+              <th className="table-th"> description</th>
+              <th className="table-th"> beforeDiscountPrice</th>
+              <th className="table-th"> productSize</th>
+              <th className="table-th"> mainPhotoLink</th>
+              <th className="table-th"> additionalPhotoLinks</th>
+              <th className="table-th"> colorFromList</th>
+              <th className="table-th"> originCountry</th>
+              <th className="table-th"> materialName</th>
+              <th className="table-th"> materialOuterShell</th>
+              <th className="table-th"> materialLinerShell</th>
+              <th className="table-th"> careGuide</th>
+              <th className="table-th"> inStock</th>
+              <th className="table-th"> productLink</th>
             </tr>
           </MDBTableHead>
           <MDBTableBody>
@@ -253,7 +264,7 @@ const Table = (props) => {
         </MDBTable>
       </MDBCardBody>
     </MDBCard>
-  );
+  </div>);
 };
 
 export default Table;

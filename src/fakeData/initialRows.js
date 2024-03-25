@@ -24,7 +24,7 @@ export  const initialRows = [
       inStock: 45,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16 11:58:16"
+      createDate: "2015-08-16"
     },
     {
       id: 26,
@@ -51,7 +51,7 @@ export  const initialRows = [
       inStock: 30,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16 11:58:17"
+      createDate: "2015-08-16"
     },
     {
       id: 27,
@@ -78,7 +78,7 @@ export  const initialRows = [
       inStock: 1,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16 11:58:17"
+      createDate: "2015-08-16"
     },
     {
       id: 29,
@@ -106,5 +106,6 @@ export  const initialRows = [
       productLink: "test_9d3375672a93",
       isDeleted: true,
       createDate: "2024-03-22"
-    }
+    },
+    
   ];
