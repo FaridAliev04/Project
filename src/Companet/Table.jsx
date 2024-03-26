@@ -11,11 +11,13 @@ import {
 } from "mdbreact";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
-import { FaRegEyeSlash } from "react-icons/fa";
 import { initialRows } from "../fakeData/initialRows";
 import RowsEdit from "./RowsEdit";
 import { MdDone } from "react-icons/md";
 import Date from "./Date";
+import { Stack } from "@mui/material";
+import Pagination from '@mui/material/Pagination';
+
 
 
 const Table = (props) => {
@@ -25,12 +27,18 @@ const Table = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [date, setDate] = useState();
   const [searchColumns,setSearchColumns]=useState(null)
-
   const[dataSort,setDataSort]=useState(null)
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; 
+  const [updata,setUpdata]=useState([])
+const [rowsDataPush, setRowsDataPush] = useState(rowsData);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = rowsData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(rowsData.length / itemsPerPage);
 
-  // const [id, setId] = useState([]);
-
+  console.log(currentItems)
   const handleCheckBoxFunc = (e) => {
     if (checkBoxId) {
       setCheckBoxId([...checkBoxId, e.id]);
@@ -70,6 +78,7 @@ const Table = (props) => {
       return row;
     });
     setRowsData(updatedRowsData);
+    setUpdata(updatedRowsData)
     setIsEditing(false);
     console.log(rowsData)
   };
@@ -77,16 +86,19 @@ const Table = (props) => {
   useEffect(() => {
     console.log(rowsData);
   }, []);
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
-  return (<div>
-    <Date rowsData={rowsData} setRowsData={setRowsData}/>
-    <MDBCard narrow>
+  return (<div className="table-main">
+    <Date updata={updata} rowsDataPush={rowsDataPush} setRowsDataPush={setRowsDataPush} rowsData={rowsData} setRowsData={setRowsData}/>
+    <MDBCard className="table-card" narrow>
               <div onClick={()=>(setDataSort(null),setSearchColumns(null),setSearchQuery(""))} className={searchColumns?"blackBg":"blackBg-none"}></div>
-        <RowsEdit dataSort={dataSort} setDataSort={setDataSort} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setSearchColumns={setSearchColumns} searchColumns={searchColumns} rowsData={rowsData} setRowsData={setRowsData}/>
+        <RowsEdit updata={updata} rowsDataPush={rowsDataPush} setRowsDataPush={setRowsDataPush} dataSort={dataSort} setDataSort={setDataSort} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setSearchColumns={setSearchColumns} searchColumns={searchColumns} rowsData={rowsData} setRowsData={setRowsData}/>
       <MDBCardHeader className="MDBCardHeader view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
         <div></div>
         <div className="table-name">
-          <h1 className="table-header">Table</h1>
+
         </div>
         <div className="table-actions-icons">
           <CiEdit onClick={handleEditFunc} className="table-icons" />
@@ -135,14 +147,14 @@ const Table = (props) => {
             </tr>
           </MDBTableHead>
           <MDBTableBody>
-            {rowsData.map((row) => (
+            {currentItems?.map((row) => (
               <tr key={row.id}>
                 <td>
                   <input
                     onClick={() => handleCheckBoxFunc(row)}
                     type="checkbox"
                     className="custom-control-input"
-                    id="defaultUnchecked"
+                    id={`defaultUnchecked${row.id}`}
                   />
                 </td>
                 {isEditing &&
@@ -154,6 +166,7 @@ const Table = (props) => {
                         onChange={(e) => setDate(e.target.value)}
                         type="text"
                         defaultValue={row.createDate}
+          
                       />
                     </td>
                     <td>
@@ -261,9 +274,17 @@ const Table = (props) => {
               </tr>
             ))}
           </MDBTableBody>
+
         </MDBTable>
       </MDBCardBody>
     </MDBCard>
+          <Stack className="stack" display={"flex"} justifyContent={"center"} alignItems={"center"}>
+              <Pagination         
+              count={totalPages} 
+              page={currentPage} 
+              onChange={handlePageChange}  
+              color="primary"  />
+          </Stack>
   </div>);
 };
 

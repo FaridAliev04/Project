@@ -21,10 +21,6 @@ const Menu = () => {
         </div>
 
         <div className={menuNav?"menu-nav-div":"menu-nav-div-none"}>
-         <div className='menu-nav-X-div'>
-            <HiOutlineXMark onClick={menuNavFunc} className='menu-nav-X' />
-         </div>
-          
           <NavLink className="menu-nav-link" to={"/"}>
             Searching
           </NavLink>

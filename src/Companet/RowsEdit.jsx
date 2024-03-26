@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import { initialRows } from "../fakeData/initialRows";
+import { MdOutlineDone } from "react-icons/md";
 
 const RowsEdit = ({
   rowsData,
@@ -12,9 +13,12 @@ const RowsEdit = ({
   setDataSort,
   searchQuery,
   setSearchQuery,
+  rowsDataPush,
+  setRowsDataPush
 }) => {
   const [checkId, setCheckId] = useState([]);
-  const [rowsDataPush,setRowsDataPush]=useState(initialRows)
+  const [rename, setRename] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const data = rowsDataPush?.map((e) => {
     return e[searchColumns];
@@ -52,21 +56,23 @@ const RowsEdit = ({
   }, [searchQuery]);
 
   const filterFunc = (e) => {
-    setCheckId((name) =>[...name, e]);
-
+    setCheckId((prevCheckId) => {
+      if (prevCheckId.includes(e)) {
+        return prevCheckId.filter((id) => id !== e);
+      } else {
+        return [...prevCheckId, e];
+      }
+    });
   };
 
   const x = () => {
-
-      let filteredData = rowsData;
-      for (const key of checkId) {
+    let filteredData = rowsData;
+    for (const key of checkId) {
       filteredData = filteredData.filter((row) => {
         return row[searchColumns] !== key;
       });
     }
     return filteredData;
-
-    
   };
 
   useEffect(() => {
@@ -74,7 +80,25 @@ const RowsEdit = ({
     setRowsData(func);
   }, [checkId]);
 
+  const renameFunc = () => {
+    if (checkId.length > 0 && rename) {
+      const pushData = rowsDataPush.map((row) => {
+        let newRow = { ...row };
+        for (const key of checkId) {
+          if (row[searchColumns] === key) {
+            newRow = { ...newRow, [searchColumns]: rename };
+          }
+        }
+        return newRow;
+      });
+      setCheckId([]);
+      setRowsData(pushData);
+      setRowsDataPush(pushData);
+      // setIsChecked(false); // Reset the isChecked state to false
+    }
+  };
   console.log(checkId);
+
   return (
     <div className={searchColumns ? "rowsEdit" : "rowsEdit-none"}>
       <div className="close-div">
@@ -109,37 +133,43 @@ const RowsEdit = ({
             className="search-inp"
             type="text"
             name=""
+            onChange={(e) => setRename(e.target.value)}
           />
+          <MdOutlineDone onClick={renameFunc} className="rowsEdit-icons" />
         </div>
       </div>
       <div className="rowsData-search">
-        {dataSort !== null
-          ? dataSort?.map((e) => {
-              return (
-                <div className="dataSort">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="defaultUnchecked"
-                    onClick={() => filterFunc(e)}
-                  />
-                  <span className="dataSort-text">{e}</span>
-                </div>
-              );
-            })
-          : filteredResults.map((e) => {
-              return (
-                <div className="dataSort">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="defaultUnchecked"
-                    onClick={() => filterFunc(e)}
-                  />
-                  <span className="dataSort-text">{e}</span>
-                </div>
-              );
-            })}
+        {dataSort !== null ? (
+          dataSort?.map((e) => {
+            return (
+              <div className="dataSort">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id={e}
+                  onClick={() => filterFunc(e)}
+                  checked={checkId.includes(e)}
+                />
+                <span className="dataSort-text">{e}</span>
+              </div>
+            );
+          })
+        ) : (
+          filteredResults.map((e) => {
+            return (
+              <div className="dataSort">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  onClick={() => filterFunc(e)}
+                  value={e}
+                  checked={checkId.includes(e)}
+                />
+                <span className="dataSort-text">{e}</span>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );

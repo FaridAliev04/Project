@@ -4,7 +4,7 @@ import Table from '../Companet/Table'
 
 const ReportPg = () => {
   return (
-    <div>
+    <div className='ReportPg'>
         <Menu/>
         <Table/>
     </div>

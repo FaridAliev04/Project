@@ -10,6 +10,8 @@ input{
   background-size: 100%;
   background-repeat: no-repeat;
   padding-bottom: 10rem;
+  display: flex;
+  justify-content: space-between;
 }
 .search-inp-div{
   display: flex;
@@ -18,7 +20,7 @@ input{
   /* align-items: center; */
   /* height: 35em; */
   position: relative;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 12rem;
 
@@ -38,7 +40,7 @@ input{
   cursor: pointer;
   font-size: 1.5rem;
   position: absolute;
-  right: 55px;
+  right: 20px;
   top: 15px;
 }
 .menu-icons{
@@ -46,31 +48,31 @@ input{
   cursor: pointer;
 }
 .menu-nav-div-none{
-  display: none;
-position: absolute;
-display: flex;
+  display: flex;
 flex-direction: column;
-top: 0;
 background-color: white;
 gap: 2rem;
 padding: 1rem;
-height: 14rem;
-left: -10rem;
+height: 38rem;
 transition: 1s;
+margin-left: -10rem;
+width: 9.5rem;
 }
 .menu-nav-div{
-  position: absolute;
   display: flex;
   flex-direction: column;
-  top: 0;
   background-color: white;
   gap: 2rem;
   padding: 1rem;
-  height: 14rem;
-  left: 0;
+  height: 38rem;
+  margin-left: 0;
   transition: 1s;
   z-index: 99999;
-
+  width: 9.5rem;
+}
+.ReportPg{
+  display: flex;
+  gap: 2rem;
 }
 .menu-nav-link{
   color: black;
@@ -120,91 +122,6 @@ cursor: pointer;
   background-color: white;
 }
 
-/* .tbody-trash-icons{
-  color: red;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-html,
-body,
-.intro {
-  height: 100%;
-}
-
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-thead th {
-  color: #fff;
-}
-
-.card {
-  border-radius: .5rem;
-}
-
-.table-scroll {
-  border-radius: .5rem;
-}
-
-.table-scroll table thead th {
-  font-size: 1.25rem;
-}
-thead {
-  top: 0;
-  position: sticky;
-}
-.edit-td{
-  display: flex;
-  width: 10rem;
-}
-.tbody-edit-icons{
-  color: orange;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.edit-done-icons{
-  color: green;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-.tbody-td{  
-background-color: rgb(180, 176, 176) !important;
-width: 45rem;
-}
-.tbody-td-bg{
-  background-color: white !important;
-  width: 45rem;
-}
-.thead-th{
-  cursor: pointer;
-}
-.thead-th-none-div{
-  position: absolute;
-  bottom: -1rem;
-  z-index: 9999;
-  display: none;
-}
-.thead-th-header{
-  font-size: 1.5rem;
-}
-.css-az8st9-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell{
-  overflow: inherit; 
-  white-space: normal !important;
-}
-.css-az8st9-MuiDataGrid-root .MuiDataGrid-cellContent{
-  height: 3rem !important;
-  overflow-y: auto !important;
-}
-.GridToolbarContainer{
-  display: flex;
-  justify-content: space-between;
-} */
-
 
 /* Table css */
 
@@ -212,7 +129,7 @@ width: 45rem;
   color: white;
 }
 .table-icons{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: white;
 }
@@ -235,8 +152,8 @@ background: linear-gradient(40deg, #45cafc, #303f9f) !important;
     .rowsEdit{
       width: 22rem;
       position: absolute;
-      left: 36rem;
-      top: 8rem;
+      left: 26rem;
+      top: 6rem;
       background-color: white;
       z-index: 99999999;
       display: flex;
@@ -282,7 +199,7 @@ background: linear-gradient(40deg, #45cafc, #303f9f) !important;
     }
     .blackBg{
       width: 100%;
-      height: 90rem;
+      height: 28rem;
       background-color: black;
       position: absolute;
       top: 0;
@@ -300,10 +217,45 @@ background: linear-gradient(40deg, #45cafc, #303f9f) !important;
       gap: 1rem;
     }
     .done-table-icons{
-      color: red;
-      font-size: 1.2rem;
+      color: rgb(0, 255, 42);
+      font-size: 1.5rem;
     }
     .rowsData-search{
       margin-top: 1rem;
       min-height: 7rem;
+    }
+    .date-main{
+      margin-bottom: 2rem;
+    }
+    .table-main{
+      margin-top: 2rem;
+    }
+    .pagination{
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .stack{
+      margin-top: 2rem;
+    }
+    .table-main{
+      width: 90%;
+      margin: 0 auto;
+    }
+    .table-main{
+      overflow: auto;
+      padding-top: 4rem;
+    }
+    .search{
+      display: flex;
+      position: relative;
+    }
+    .search-download-div{
+      position: absolute;
+      bottom: 0;
+      right:  -40px;
+    }
+    .search-download-icons{
+      font-size: 1.7rem;
+      color: white;
+      cursor: pointer;
     }

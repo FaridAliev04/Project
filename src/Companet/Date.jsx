@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { DateRangePicker, Stack } from "rsuite";
 import "rsuite/DateRangePicker/styles/index.css";
 import { set } from "rsuite/esm/utils/dateUtils";
+import { initialRows } from "../fakeData/initialRows";
 
-const Dates = ({ rowsData, setRowsData }) => {
+const Dates = ({ rowsData, setRowsData,rowsDataPush,
+  setRowsDataPush,updata }) => {
   const [dateData, setDateData] = useState([]);
-  const [oldData] = useState(rowsData)
+  // const [oldData] = useState(initialRows)
 
   const formattedDate = (date) => {
     setDateData((x) => [
@@ -29,14 +31,13 @@ const Dates = ({ rowsData, setRowsData }) => {
       setDateData(value.map(formattedDate));
     }
     else{
-      setRowsData(oldData);
-      console.log(oldData);
+      setRowsData(updata);
     }
   };
-  console.log(oldData);
+  // console.log(oldData);
 
   return (
-    <div>
+    <div className="date-main">
       <DateRangePicker onChange={handleDateChange} />
     </div>
   );

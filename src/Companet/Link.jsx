@@ -10,7 +10,7 @@ const Link = ({info,setInfo}) => {
 
   return (
     <div className='link-div'>
-        {info.map((e)=>{
+        {info?.map((e)=>{
                   return <div key={e.id} className="link-map-div">
                       <a target='_blank' className='link-map-value' href={e.link}>{e.link}</a>
                       <HiOutlineXMark onClick={()=>deleteFunc(e)}  className='trash-icons'/>

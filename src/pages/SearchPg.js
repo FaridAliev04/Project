@@ -7,6 +7,7 @@ const SearchPg = () => {
     <div className='search-body'>
         <Menu/>
         <Search/>
+        <div></div>
     </div>
   )
 }
