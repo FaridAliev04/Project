@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from '../Companet/Menu'
 import Search from '../Companet/Search'
+import Hesab from '../Companet/Hesab'
 
 const SearchPg = () => {
   return (

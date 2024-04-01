@@ -14,6 +14,8 @@ const Dates = ({
   const [oldData] = useState(rowsData);
 
   const formattedDate = (date) => {
+
+    console.log(date)
     setDateData((x) => [
       ...x,
       `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(

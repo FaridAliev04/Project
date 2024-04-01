@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { IoAddSharp } from "react-icons/io5";
 import { data } from '../fakeData/linkData';
-import uuid4 from 'uuid4';
-import { IoTrashOutline } from "react-icons/io5";
 import Link from './Link';
 import { FaDownload } from "react-icons/fa";
+import { addLinks } from '../API/requestApi';
 
 
 const Search = () => {
@@ -13,18 +12,22 @@ const Search = () => {
   const [pushData,setPushData]=useState()
 
   const infoAdd=()=>{
-    setInfo([...info,{id:uuid4(),link:inpValue}])
+    if(info){
+      setInfo([...info,inpValue])
     setInpValue('')
+    }
+    
   }
 
-  console.log(pushData)
   const downLoadFunc=()=>{
     if(info){
-      setPushData(info)
+      addLinks([...info])
+      setPushData([...info])
       setInfo([])
     }
   }
-
+  
+  console.log(pushData)
   console.log(info)
   return (
     <div className='search-div'>

@@ -5,7 +5,7 @@ export  const initialRows = [
       articleId: "b",
       productMergeId: "test_edf3de27c56a",
       productTitle: "test_29e4fcc9a398",
-      sourcePrice: "test_1abf42062e0f",
+      sourcePrice: "12",
       finalPrice: "test_45579a77e16d",
       color: "test_6abe89fd2cff",
       description: "test_91314dc14238",
@@ -24,7 +24,7 @@ export  const initialRows = [
       inStock: 45,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:15:30"
     },
     {
       id: 26,
@@ -32,7 +32,7 @@ export  const initialRows = [
       articleId: "a",
       productMergeId: "test_edf3de27c56a",
       productTitle: "test_29e4fcc9a398",
-      sourcePrice: "test_1abf42062e0f",
+      sourcePrice: "15",
       finalPrice: "test_45579a77e16d",
       color: "test_6abe89fd2cff",
       description: "test_91314dc14238",
@@ -51,7 +51,7 @@ export  const initialRows = [
       inStock: 30,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:15:30"
     },
     {
       id: 27,
@@ -59,7 +59,7 @@ export  const initialRows = [
       articleId: "test_98327c19d446",
       productMergeId: "test_edf3de27c56a",
       productTitle: "test_29e4fcc9a398",
-      sourcePrice: "test_1abf42062e0f",
+      sourcePrice: "16",
       finalPrice: "test_45579a77e16d",
       color: "test_6abe89fd2cff",
       description: "test_91314dc14238",
@@ -78,7 +78,7 @@ export  const initialRows = [
       inStock: 1,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:13:12"
     },
     {
       id: 29,
@@ -105,7 +105,7 @@ export  const initialRows = [
       inStock: 1,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2024-03-22"
+      createDate: "2024-03-22 10:15:30"
     },
     {
       id: 30,
@@ -132,7 +132,7 @@ export  const initialRows = [
       inStock: 45,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:15:30"
     },
     {
       id: 31,
@@ -159,7 +159,7 @@ export  const initialRows = [
       inStock: 30,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:15:30"
     },
     {
       id: 32,
@@ -186,7 +186,7 @@ export  const initialRows = [
       inStock: 1,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2015-08-16"
+      createDate: "2015-08-16 10:15:30"
     },
     {
       id: 33,
@@ -213,7 +213,7 @@ export  const initialRows = [
       inStock: 1,
       productLink: "test_9d3375672a93",
       isDeleted: true,
-      createDate: "2024-03-11"
+      createDate: "2024-03-11 10:15:30"
     },
     
   ];

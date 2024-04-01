@@ -4,16 +4,16 @@ import { HiOutlineXMark } from "react-icons/hi2";
 
 const Link = ({info,setInfo}) => {
 
-    const deleteFunc=({id})=>{
-        setInfo(info.filter((e)=>e.id!=id))
+    const deleteFunc=(id)=>{
+        setInfo(info.filter((e,index)=>index!==id))
     }
 
   return (
     <div className='link-div'>
-        {info?.map((e)=>{
-                  return <div key={e.id} className="link-map-div">
-                      <a target='_blank' className='link-map-value' href={e.link}>{e.link}</a>
-                      <HiOutlineXMark onClick={()=>deleteFunc(e)}  className='trash-icons'/>
+        {info?.map((e,index)=>{
+                  return <div key={e.index} className="link-map-div">
+                      <a target='_blank' className='link-map-value' href={e}>{e}</a>
+                      <HiOutlineXMark onClick={()=>deleteFunc(index)}  className='trash-icons'/>
                       
                   </div>
                 })}
